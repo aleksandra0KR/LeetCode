@@ -18,12 +18,6 @@ func generateTrees(n int) []*TreeNode {
             return res
         }
 
-        if(left == right){
-            currentTree := &TreeNode{Val: left, Left: nil, Right: nil}
-            res = append(res, currentTree)
-            return res
-        }
-
         for current := left; current <= right; current++{
             l := helper(left, current - 1)
             r := helper(current + 1, right)
