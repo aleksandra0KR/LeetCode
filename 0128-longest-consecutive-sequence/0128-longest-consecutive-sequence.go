@@ -27,3 +27,9 @@ func longestConsecutive(nums []int) int {
         
     return maxConsequence
 }
+func max(a, b int) int{
+    if a > b{
+        return a
+    }
+    return b
+}
