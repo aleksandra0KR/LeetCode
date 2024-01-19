@@ -17,7 +17,6 @@ public:
                 maxConsequence = maxConsequence < current ? current : maxConsequence;
                 current = 0;
             }
-            cout << current;
     
         }
         
