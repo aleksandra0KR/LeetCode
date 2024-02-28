@@ -1,10 +1,10 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        Integer sum = 0;
-        Integer left = 0;
-        Integer right = 0;
-        Integer numsLenght = nums.length;
-        Integer resLenght = 1000000;
+        int sum = 0;
+        int left = 0;
+        int right = 0;
+        int numsLenght = nums.length;
+        int resLenght = 1000000;
         
         while(right < numsLenght){
             
