@@ -1,3 +1,10 @@
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+
 func minSubArrayLen(target int, nums []int) int {
     sum := 0
     left := 0
