@@ -43,9 +43,9 @@ public:
             front = Q.front();
             Q.pop();
             counter++;
-            for (int i = 0; i < edges[front].size(); i++) {
-                degree[edges[front][i]]--;
-                if (degree[edges[front][i]] == 0) Q.push(edges[front][i]);
+            for (auto value : edges[front]) {
+                degree[value]--;
+                if (degree[value] == 0) Q.push(value);
             }
         }
 
