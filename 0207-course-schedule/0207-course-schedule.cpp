@@ -43,7 +43,7 @@ public:
             front = Q.front();
             Q.pop();
             counter++;
-            for (auto value : edges[front]) {
+            for (int value : edges[front]) {
                 degree[value]--;
                 if (degree[value] == 0) Q.push(value);
             }
