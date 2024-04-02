@@ -1,25 +1,26 @@
 func reverseWords(s string) string {
-    var m []string
-    var word strings.Builder
-    for _, a := range s{
-        if a == ' ' {
-            if len(word.String()) != 0 {
-            m = append(m, word.String())
-            word.Reset()
-            }
-        } else {
-            word.WriteRune(a)
-        }
-    }
-     if len(word.String()) != 0 {
-        m = append(m, word.String())
-     }
-    word.Reset()
-    for i:= len(m) - 1; i > 0; i-- {
-        word.WriteString(m[i])
-        word.WriteString(" ")
-    }
-    word.WriteString(m[0])
+    var j int
+    result := ""
     
-    return word.String()
+    for i := 0; i < len(s); i++ {
+        if s[i] == ' ' {
+            continue
+        }
+        
+        j = i
+        for j = i; j < len(s); j++ {
+            if s[j] == ' '{
+                break
+            }
+        }
+        
+        if result == ""{
+            result = s[i:j]
+        } else{
+            result = s[i:j] + " " + result
+        }
+        i = j
+    }
+    
+    return result
 }
