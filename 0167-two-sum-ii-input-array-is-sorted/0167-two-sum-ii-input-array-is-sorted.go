@@ -6,7 +6,6 @@ func twoSum(numbers []int, target int) []int {
         if numbers[right] + numbers[left] > target{
             right--
         }
-        
         if numbers[right] + numbers[left] < target{
             left++
         }
@@ -15,7 +14,6 @@ func twoSum(numbers []int, target int) []int {
         }
     }
     
-    result := []int{left + 1, right + 1}
-    return result
+    return []int{left + 1, right + 1}
     
 }
