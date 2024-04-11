@@ -17,47 +17,19 @@ public:
 class Solution {
 public:
     
-    void copyNode(Node* &head, Node* &tail, int val){
-        Node* newNode = new Node(val);
-        
-        if(head == NULL){
-            head = newNode;
-            tail = newNode;
-            return;
-        }
-        tail->next = newNode;
-        tail = newNode;
-       
-    }
+   unordered_map<Node*, Node*> replacement;
     
     Node* copyRandomList(Node* head) {
-        Node* copyHead = NULL;
-        Node* copyTail = NULL;
-        Node* current = head;
+        if(head == NULL) return NULL;
         
-        while(current != NULL){
-            copyNode(copyHead, copyTail, current->val);
-            current = current->next;
-        }
+        if(replacement.find(head) != replacement.end()) return replacement[head];
         
-        unordered_map<Node*, Node*> replacement;
+        Node* newNode = new Node(head->val);
         
-        current = head;
-        Node* currentCopy = copyHead;
-        while(current != NULL){
-            replacement[current] = currentCopy;
-            current = current -> next;
-            currentCopy = currentCopy->next;
-        }
+        replacement[head] = newNode;
+        newNode->next = copyRandomList(head->next);
+        newNode->random = copyRandomList(head->random);
         
-        currentCopy = copyHead;
-        while(head != NULL){
-            currentCopy->random = replacement[head->random];
-            head = head->next;
-            currentCopy = currentCopy->next;
-        }
-        
-        return copyHead;
-        
+        return replacement[head];
     }
 };
