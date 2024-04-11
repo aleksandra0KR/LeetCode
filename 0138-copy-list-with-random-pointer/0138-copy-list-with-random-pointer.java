@@ -15,7 +15,7 @@ class Node {
 
 class Solution {
     
-    Map<Node, Node> replacement = new LinkedHashMap<Node, Node>();
+    Map<Node,Node> replacement = new HashMap<>();
     
     public Node copyRandomList(Node head) {
         
