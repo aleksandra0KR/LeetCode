@@ -13,17 +13,18 @@ func copyRandomList(head *Node) *Node {
         return nil
     }
 
-    replacement := make(map[*Node]*Node)
+    var replacement map[*Node]*Node = make(map[*Node]*Node)
    
-    curent := head
+    var curent *Node  = head
     for curent != nil {
         replacement[curent] = &Node{ Val:curent.Val }
         curent = curent.Next
     }
     
     curent = head
+    var newNode *Node
     for curent != nil {
-        newNode := replacement[curent]
+        newNode = replacement[curent]
         newNode.Next = replacement[curent.Next]
         newNode.Random = replacement[curent.Random]
         curent = curent.Next
