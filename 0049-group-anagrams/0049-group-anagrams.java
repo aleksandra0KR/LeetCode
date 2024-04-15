@@ -5,7 +5,7 @@ class Solution {
         char[] sortedWord;
         String sortedString;
         
-        for(var word: strs){
+        for(String word: strs){
             
             sortedWord  = word.toCharArray();
             Arrays.sort(sortedWord);
