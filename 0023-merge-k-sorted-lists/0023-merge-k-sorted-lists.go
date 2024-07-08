@@ -8,7 +8,7 @@
 
 
 func mergeKLists(lists []*ListNode) *ListNode {
-    array := make ([]int, 0, 500 * 1000)
+    array := make ([]int, 0, 500 * 100)
     
     for i := 0; i < len(lists); i++ {
         j := lists[i]
