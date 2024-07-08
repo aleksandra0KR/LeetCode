@@ -5,17 +5,20 @@
  *     Next *ListNode
  * }
  */
+
+type EmptyStruct struct{}
 func hasCycle(head *ListNode) bool {
     
     i := head
-  
-    visited := make(map [*ListNode]bool)
+    visited := make(map[*ListNode]EmptyStruct)
+    
     for i != nil {
-        if ok, _ := visited[i]; ok {
+        if _, ok := visited[i]; ok {
             return true
         }
-        visited[i] = true
+        visited[i] = EmptyStruct{}
         i = i.Next
     }
+    
     return false
 }
