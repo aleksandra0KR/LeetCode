@@ -6,18 +6,22 @@
  * }
  */
 
-type EmptyStruct struct{}
+
 func hasCycle(head *ListNode) bool {
     
-    i := head
-    visited := make(map[*ListNode]EmptyStruct)
+    if head == nil || head.Next == nil {
+        return false
+    }
+    slow := head
+    fast := head.Next
     
-    for i != nil {
-        if _, ok := visited[i]; ok {
-            return true
-        }
-        visited[i] = EmptyStruct{}
-        i = i.Next
+    for slow != fast && fast.Next != nil && fast.Next.Next != nil{
+        slow = slow.Next
+        fast = fast.Next.Next
+    }
+    
+    if slow == fast {
+        return true
     }
     
     return false
